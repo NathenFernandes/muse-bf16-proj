@@ -50,7 +50,3 @@ Obtain the official harness separately with `okc init muse_bf16_proj`. In that i
 V18 passed all nine official judge tests. Additional local checks covered fresh-input graph replay, output retention, nearby shapes, lossless packing and sanitizer checks. Sandbox and H100 checks are distinct from the official H200 result.
 
 An inherited limitation remains for extreme finite BF16 inputs outside the official generator: intermediate arithmetic can produce nonfinite outputs. This is not an all-finite-input correctness guarantee or a general-purpose GEMM replacement. Performance is specific to the measured H200 workload. The later v19 investigations did not produce a qualifying improvement and are not included as working optimizations.
-
-## License
-
-MIT. Copyright © 2026 Nathen Fernandes. CUDA, PyTorch, SGLang and other dependencies retain their own licenses.
