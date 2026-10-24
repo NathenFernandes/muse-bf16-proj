@@ -4,14 +4,12 @@ Nathen Fernandes's NVIDIA H200 solution for the [Muse Spark Open Kernel Challeng
 
 **Highest leaderboard rank achieved: #1. Best judged speedup: 1.5186× over SGLang.**
 
-The #1 position was achieved during the competition with v9 and v10 on October 24, 2026. It is a historical peak, not a claim of current first place or final competition victory. The later v18 submission is the best measured score in this repository. Leaderboard positions remain subject to the competition's final review.
+The #1 position was achieved during the competition with earlier submissions on October 24, 2026. It is a historical peak, not a claim of current first place or final competition victory. The later v18 submission is the best measured score in this repository. Leaderboard positions remain subject to the competition's final review.
 
 ## Results
 
 | Version | Judge speedup | 95% interval | Job ID | Milestone |
 |---|---:|---|---|---|
-| v9 | 1.4601× | 1.4382–1.4820× | `394670b16e004295` | Historical #1 |
-| v10 | 1.5010× | 1.4785–1.5236× | `81106861e0b94d7e` | Historical #1 |
 | v18 | 1.5186× | 1.4958–1.5413× | `66d8b007f6c641ee` | Best judged score; 9/9 tests passed |
 
 The aggregate v18 result corresponds to about **34.15% lower latency** than the SGLang baseline under the competition's scoring method. Its cold preparation took **53.80 seconds**, with no judge flags. Scores come from actual judge runs, not projected sandbox performance.
@@ -37,7 +35,7 @@ The timed operation is `out = x @ W.T`, covering attention QKV/gate and output p
 - The router retains FP32 weights or the permitted BF16 hi/lo representation.
 - Unsupported cases fall through the existing dispatch. Timed calls allocate fresh outputs and compute from the supplied activations.
 
-`submission.py` is the exact v18 submission, unchanged from its judged bytes. CUDA source strings are compressed to meet the challenge's 1 MB submission limit. Use `python3 tools/expand_source.py submission.py /tmp/submission_expanded.py` to produce a readable inspection copy without importing or executing the submission. `checkpoints/v10.py` preserves the #1-era checkpoint.
+`submission.py` is the exact v18 submission, unchanged from its judged bytes. CUDA source strings are compressed to meet the challenge's 1 MB submission limit. Use `python3 tools/expand_source.py submission.py /tmp/submission_expanded.py` to produce a readable inspection copy without importing or executing the submission.
 
 ## Running
 
